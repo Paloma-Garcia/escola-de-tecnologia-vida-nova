@@ -10,13 +10,24 @@
 
 numero_de_palavras = 0
 with open(r'palavras.txt', 'r') as arquivo_palavras:
-    palavras = arquivo_palavras.read()
-    letras_maiusculas = palavras.upper()
-    numero_de_palavras += len(palavras)
+    # Esta linha faz você ler o arquivo todo de uma vez, o que não é muito bom
+    # O ideal é você ler linha a linha, para não precisar carregar tudo na memória de uma vez só
+    palavras = arquivo_palavras.read()    
+    letras_maiusculas = palavras.upper()  # Note que essa variável não é utilizada
+    numero_de_palavras += len(palavras) # Aqui você está somando a quantidade de letras, e não a quantidade de palavras
 
+# Uma alternativa seria isso:
+numero_de_palavras = 0
+with open('palavras.txt', 'r') as arquivo_palavras:
+    for palavra in arquivo_palavras:
+        numero_de_palavras += 1  # Para cada linha somamos 1 na variável de contagem. Ao final teremos o total de palavras
 
 print("este é o numero de palavras q existe em nosso arquivo de palavras",numero_de_palavras)
 
+# Isso funciona para a contagem de letras, mas de novo... não é muito eficiente.
+# Percebe como o processo é igual para todas as letras? 
+# Quando isso acontece normalmente podemos adaptar o código pra deixá-lo mais genérico
+# Tente pensar em uma solução mais enxuta. É aqui que mora a grande sacada do exercício ;)
 print("Este é o numero de letras usados no arquivo de palavras")
 a = list(letras_maiusculas).count("a")
 b = list(palavras).count("b")
