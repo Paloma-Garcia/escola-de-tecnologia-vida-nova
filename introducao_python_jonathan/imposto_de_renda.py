@@ -21,16 +21,16 @@ if valorrendabruta <= 1903.98:
     print('=' * 50)
     print("Você não precisa declarar imposto de renda pois não atingiu valor minimo para essa ação.")
 
-elif valorrendabruta >= 1903.99 and valorrendabruta <= 2826.65:
+elif valorrendabruta > 1903.99 and valorrendabruta <= 2826.65:
     imposto = 7.5
 
-elif valorrendabruta >= 2826.66 and valorrendabruta <= 3371.05:
+elif valorrendabruta > 2826.66 and valorrendabruta <= 3371.05:
     imposto = 15.0
 
-elif valorrendabruta >= 3371.06 and valorrendabruta <= 4664.68:
+elif valorrendabruta > 3371.06 and valorrendabruta <= 4664.68:
     imposto = 22.5
   
-elif valorrendabruta <= 4664.69:
+elif valorrendabruta > 4664.68:
     imposto = 27.5 
 
 valorrendaliquida = valorrendabruta - (valorrendabruta * (imposto / 100))
